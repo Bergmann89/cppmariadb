@@ -1,10 +1,10 @@
-#include <mariadb/result.h>
-#include <mariadb/column.h>
+#include <cppmariadb/result.h>
+#include <cppmariadb/column.h>
 
-#include <mariadb/inline/row.inl>
-#include <mariadb/inline/result.inl>
+#include <cppmariadb/inline/row.inl>
+#include <cppmariadb/inline/result.inl>
 
-using namespace ::mariadb;
+using namespace ::cppmariadb;
 
 row* result::next()
 {

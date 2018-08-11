@@ -1,8 +1,8 @@
-#include <mariadb/exception.h>
+#include <cppmariadb/exception.h>
 #include <cpputils/misc/enum.h>
 #include <cpputils/misc/string.h>
 
-using namespace ::mariadb;
+using namespace ::cppmariadb;
 
 void exception::print_message(std::ostream& os) const
 {

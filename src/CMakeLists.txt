@@ -2,7 +2,11 @@
 
 Include                     ( cotire OPTIONAL )
 Include                     ( pedantic OPTIONAL )
+Include                     ( strip_symbols OPTIONAL )
 
+Option                      ( BUILD_SHARED_MARIADBPP "Build cppmariadb shared library." OFF )
+
+Set                         ( BUILD_SHARED_LIBS ${BUILD_SHARED_MARIADBPP} )
 Set                         ( CMAKE_CXX_STANDARD 17 )
 Set                         ( CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   ${PEDANTIC_C_FLAGS}" )
 Set                         ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${PEDANTIC_CXX_FLAGS}" )
@@ -11,19 +15,22 @@ Set                         ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${PEDANTIC_CXX
 
 Find_Package                ( cpputils REQUIRED )
 
-# Project: mariadb ################################################################################
+# Project: cppmariadb #############################################################################
 
-Project                     ( mariadb VERSION 1.0.0.0 LANGUAGES CXX )
+Project                     ( cppmariadb VERSION 1.0.0.0 LANGUAGES CXX )
 File                        ( GLOB_RECURSE SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp )
-Add_Library                 ( mariadb ${SOURCE_FILES} )
+Add_Library                 ( cppmariadb ${SOURCE_FILES} )
 Target_Include_Directories  (
-                                mariadb
+                                cppmariadb
                                 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include
                             )
 Target_Link_Libraries       (
-                                mariadb
+                                cppmariadb
                                 cpputils
                             )
 If                          ( __COTIRE_INCLUDED )
-    Cotire                      ( mariadb )
+    Cotire                      ( cppmariadb )
 EndIf                       ( )
+If                          ( __STRIP_SYMBOLS_INCLUDED )
+    Strip_Symbols               ( cppmariadb DBG_FILE )
+EndIf                       ()

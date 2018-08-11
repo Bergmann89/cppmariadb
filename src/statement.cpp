@@ -1,12 +1,12 @@
-#include <mariadb/row.h>
-#include <mariadb/enums.h>
-#include <mariadb/column.h>
-#include <mariadb/exception.h>
+#include <cppmariadb/row.h>
+#include <cppmariadb/enums.h>
+#include <cppmariadb/column.h>
+#include <cppmariadb/exception.h>
 
-#include <mariadb/inline/statement.inl>
-#include <mariadb/inline/connection.inl>
+#include <cppmariadb/inline/statement.inl>
+#include <cppmariadb/inline/connection.inl>
 
-using namespace ::mariadb;
+using namespace ::cppmariadb;
 
 void statement::parse(const std::string& query)
 {

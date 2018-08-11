@@ -1,12 +1,12 @@
-#include <mariadb/row.h>
-#include <mariadb/column.h>
-#include <mariadb/exception.h>
+#include <cppmariadb/row.h>
+#include <cppmariadb/column.h>
+#include <cppmariadb/exception.h>
 
-#include <mariadb/inline/row.inl>
-#include <mariadb/inline/field.inl>
-#include <mariadb/inline/result.inl>
+#include <cppmariadb/inline/row.inl>
+#include <cppmariadb/inline/field.inl>
+#include <cppmariadb/inline/result.inl>
 
-using namespace ::mariadb;
+using namespace ::cppmariadb;
 
 size_t row::find(const std::string& name) const
 {
