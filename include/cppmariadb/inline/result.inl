@@ -6,7 +6,7 @@ namespace cppmariadb
 {
 
     /* result ************************************************************************************/
-        
+
     inline void result::rowindex(unsigned long long value)
         { _rowindex = value; }
 
@@ -34,8 +34,9 @@ namespace cppmariadb
     }
 
     inline result::result(MYSQL_RES* h)
-        : mariadb_handle(h)
-        , _rowindex     (static_cast<unsigned long long>(-1))
+        : mariadb_handle    (h)
+        , _is_initialized   (false)
+        , _rowindex         (static_cast<unsigned long long>(-1))
         { }
 
     /* result_stored ******************************************************************************/
@@ -61,7 +62,7 @@ namespace cppmariadb
     inline result_stored::result_stored(MYSQL_RES* h)
         : result(h)
         { }
-        
+
     /* result_used *******************************************************************************/
 
     inline result_used::result_used(MYSQL_RES* h)

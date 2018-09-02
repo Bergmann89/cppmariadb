@@ -8,14 +8,19 @@ using namespace ::cppmariadb;
 
 row* result::next()
 {
+    if (_is_initialized && !_row)
+        return nullptr;
+
+    _is_initialized = true;
     auto r = mysql_fetch_row(handle());
     if (r)
     {
-        ++_rowindex;
         _row.reset(new row(*this, r));
+        ++_rowindex;
     }
     else
         _row.reset();
+
     return _row.get();
 }
 

@@ -13,6 +13,7 @@ namespace cppmariadb
         public __impl::mariadb_handle<MYSQL_RES*>
     {
     private:
+        bool                    _is_initialized;
         std::unique_ptr<row>    _row;
         mutable column_vector   _columns;
         unsigned long long      _rowindex;

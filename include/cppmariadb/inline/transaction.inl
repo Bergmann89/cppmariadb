@@ -10,7 +10,7 @@ namespace cppmariadb
     inline void transaction::begin()
     {
         static const statement sCommit("START TRANSACTION");
-        _connection.execute_rows(sCommit);
+        _connection.execute(sCommit);
     }
 
     inline void transaction::commit()
@@ -18,7 +18,7 @@ namespace cppmariadb
         static const statement sCommit("COMMIT");
         if (_closed)
             throw exception("transaction is already closed", error_code::Unknown);
-        _connection.execute_rows(sCommit);
+        _connection.execute(sCommit);
         _closed = true;
     }
 
@@ -27,7 +27,7 @@ namespace cppmariadb
         static const statement sRollback("ROLLBACK");
         if (_closed)
             throw exception("transaction is already closed", error_code::Unknown);
-        _connection.execute_rows(sRollback);
+        _connection.execute(sRollback);
         _closed = true;
     }
 
@@ -42,5 +42,5 @@ namespace cppmariadb
             rollback();
     }
 
-    
+
 }

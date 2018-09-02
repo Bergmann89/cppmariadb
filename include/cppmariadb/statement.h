@@ -39,6 +39,7 @@ namespace cppmariadb
         inline size_t               find    (const std::string& param);
         inline void                 set_null(const std::string& param);
         inline void                 set_null(size_t index);
+        inline bool                 empty   () const;
         inline void                 clear   ();
 
         template<class T>

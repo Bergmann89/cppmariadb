@@ -8,7 +8,7 @@ namespace cppmariadb
 {
 
     /* statement *********************************************************************************/
-        
+
     inline void statement::assign(const std::string& query)
     {
         _changed = true;
@@ -49,6 +49,9 @@ namespace cppmariadb
         _changed = true;
     }
 
+    inline bool statement::empty() const
+        { return _code.empty(); }
+
     inline void statement::clear()
     {
         for (auto& param : _parameters)
@@ -85,5 +88,5 @@ namespace cppmariadb
         , _connection   (nullptr)
         { parse(query); }
 
-        
+
 }
