@@ -1,0 +1,1 @@
+Option                      ( CPPMARIADB_BUILD_SHARED "Build cppmariadb shared library." OFF )
