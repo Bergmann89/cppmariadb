@@ -26,5 +26,6 @@ If                          ( __COTIRE_INCLUDED )
     Cotire                      ( test_cppmariadb )
 EndIf                       ( )
 If                          ( __CMAKE_TESTS_INCLUDED )
-    Add_CMake_Test             ( tsoutils test_cppmariadb )
+    Add_CMake_Test             ( NAME tsoutils
+                                 TARGET test_cppmariadb )
 EndIf                       ( )
