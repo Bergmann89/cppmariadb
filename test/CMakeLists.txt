@@ -10,6 +10,8 @@ Set                         ( CMAKE_CXX_STANDARD 17 )
 Set                         ( CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   ${PEDANTIC_C_FLAGS}" )
 Set                         ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${PEDANTIC_CXX_FLAGS}" )
 
+Find_Package                ( cpputils REQUIRED )
+
 # Project: test_cppmariadb ########################################################################
 
 Project                     ( test_cppmariadb )
