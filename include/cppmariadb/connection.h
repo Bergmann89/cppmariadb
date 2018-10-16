@@ -14,7 +14,9 @@ namespace cppmariadb
         : public __impl::mariadb_handle<MYSQL*>
     {
     private:
-        std::unique_ptr<result>     _result;
+        using result_t = ::cppmariadb::result;
+
+        std::unique_ptr<result_t>   _result;
 
         template<class T>
         typename T::result_type*    execute_internal(const std::string& cmd);
@@ -32,7 +34,7 @@ namespace cppmariadb
         inline result_stored*       execute_stored  (const statement& s);
         inline result_used*         execute_used    (const statement& s);
 
-        inline result*              result          () const;
+        inline result_t*            result          () const;
         inline uint                 fieldcount      () const;
         inline std::string          escape          (const std::string& value) const;
         inline void                 close           ();

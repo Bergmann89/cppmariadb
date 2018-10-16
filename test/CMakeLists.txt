@@ -20,9 +20,9 @@ Add_Executable              ( test_cppmariadb EXCLUDE_FROM_ALL ${SOURCE_FILES} )
 Target_Link_Libraries       ( test_cppmariadb
                               cppmariadb
                               cpputils
-                              gtest
-                              gmock
                               gmock_main
+                              gmock
+                              gtest
                               pthread )
 If                          ( __COTIRE_INCLUDED )
     Cotire                      ( test_cppmariadb )

@@ -11,6 +11,8 @@ namespace cppmariadb
     struct field
     {
     private:
+        using column_t = ::cppmariadb::column;
+
         const row&      _row;
         const size_t    _index;
         const char*     _data;
@@ -18,7 +20,7 @@ namespace cppmariadb
 
     public:
         inline size_t           index   () const;
-        inline const column&    column  () const;
+        inline const column_t&  column  () const;
         inline bool             is_null () const;
         inline bool             is_empty() const;
         inline const char*      data    () const;
